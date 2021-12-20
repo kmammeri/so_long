@@ -6,7 +6,7 @@
 /*   By: kmammeri <kmammeri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:52:55 by kmammeri          #+#    #+#             */
-/*   Updated: 2021/12/18 19:57:29 by kmammeri         ###   ########.fr       */
+/*   Updated: 2021/12/20 20:12:48 by kmammeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,17 @@ void	ft_initmap(t_game *game)
 	game->map = malloc(sizeof(char *) + 1);
 	if (!game->map)
 		ft_close(game);
+	game->enemy = malloc(sizeof(t_enemy));
+	if (!game->enemy)
+		ft_close(game);
+	game->enemy->move = 0;
 	game->sprite = malloc(sizeof(t_sprite));
 	if (!game->sprite)
 		ft_close(game);
 	game->player = malloc(sizeof(t_player));
 	if (!game->player)
 		ft_close(game);
+	game->enemy->nbenemy = 0;
 	game->window = 0;
 	game->endgame = 0;
 	game->lenth = 0;

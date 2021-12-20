@@ -6,7 +6,7 @@
 /*   By: kmammeri <kmammeri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:06:13 by kmammeri          #+#    #+#             */
-/*   Updated: 2021/12/18 19:56:38 by kmammeri         ###   ########.fr       */
+/*   Updated: 2021/12/20 20:30:09 by kmammeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 # define BUFFER_SIZE 1
-# define  WINDOW_LENTH 576
-# define  WINDOW_WIDTH 576
+# define  WINDOW_LENTH 704
+# define  WINDOW_WIDTH 704
 
 typedef struct s_sprite
 {
@@ -30,7 +30,15 @@ typedef struct s_sprite
 	void	*exit;
 	void	*end;
 	void	*collectible;
-
+	void	*top_left_corner;
+	void	*top_right_corner;
+	void	*bottom_left_corner;
+	void	*bottom_right_corner;
+	void	*top_middle_screen;
+	void	*bottom_middle_screen;
+	void	*left_middle_screen;
+	void	*right_middle_screen;
+	void	*enemy[4];
 }				t_sprite;
 
 typedef struct s_player
@@ -39,9 +47,18 @@ typedef struct s_player
 	int	y;
 	int	dir;
 	int	move;
-	int movex;
-	int movey;
+	int	movex;
+	int	movey;
 }		t_player;
+
+typedef struct s_enemy
+{
+	int nbenemy;
+	int	move;
+	int	*x;
+	int	*y;
+	int	*dir;
+}		t_enemy;
 
 typedef struct s_game
 {
@@ -58,6 +75,7 @@ typedef struct s_game
 	int			anime;
 	t_sprite	*sprite;
 	t_player	*player;
+	t_enemy		*enemy;
 }			t_game;
 
 char	*get_next_line(int fd, t_game *game);
@@ -84,5 +102,11 @@ void	ft_sprite_horizontal_move(t_game *game);
 void	ft_sprite_vertical_move(t_game *game);
 int		ft_delay(t_game *game);
 void	ft_end(t_game *game);
+void	ft_frame(t_game *game);
+char	*ft_itoa(int n);
+void	ft_print_enemy(t_game *game, int x, int y);
+void	ft_init_enemy(t_game *game);
+void	ft_check_enemy(t_game *game);
+void	ft_enemy_move(t_game *game);
 
 #endif

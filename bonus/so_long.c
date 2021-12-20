@@ -6,7 +6,7 @@
 /*   By: kmammeri <kmammeri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:52:55 by kmammeri          #+#    #+#             */
-/*   Updated: 2021/12/18 19:48:44 by kmammeri         ###   ########.fr       */
+/*   Updated: 2021/12/20 20:29:16 by kmammeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,30 @@ void	ft_sprite(t_game *game)
 			"sprite/pikachu_ouest.xpm", width, height);
 	game->sprite->end = mlx_xpm_file_to_image(game->mlx,
 			"sprite/raichu.xpm", width, height);
+	game->sprite->top_left_corner = mlx_xpm_file_to_image(game->mlx,
+			"sprite/top_left_corner-2.xpm", width, height);
+	game->sprite->top_middle_screen = mlx_xpm_file_to_image(game->mlx,
+			"sprite/top_middle_screen-2.xpm", width, height);
+	game->sprite->top_right_corner = mlx_xpm_file_to_image(game->mlx,
+			"sprite/top_right_corner-2.xpm", width, height);
+	game->sprite->bottom_left_corner = mlx_xpm_file_to_image(game->mlx,
+			"sprite/bottom_left_corner-2-2.xpm", width, height);
+	game->sprite->bottom_middle_screen = mlx_xpm_file_to_image(game->mlx,
+			"sprite/bottom_middle_screen-2.xpm", width, height);
+	game->sprite->bottom_right_corner = mlx_xpm_file_to_image(game->mlx,
+			"sprite/bottom_right_corner-2.xpm", width, height);
+	game->sprite->left_middle_screen = mlx_xpm_file_to_image(game->mlx,
+			"sprite/left_middle_screen-2.xpm", width, height);
+	game->sprite->right_middle_screen = mlx_xpm_file_to_image(game->mlx,
+			"sprite/right_middle_screen-2.xpm", width, height);
+	game->sprite->enemy[0] = mlx_xpm_file_to_image(game->mlx,
+			"sprite/enemy_south.xpm", width, height);
+	game->sprite->enemy[1] = mlx_xpm_file_to_image(game->mlx,
+			"sprite/enemy_north.xpm", width, height);
+	game->sprite->enemy[2] = mlx_xpm_file_to_image(game->mlx,
+			"sprite/enemy_left.xpm", width, height);
+	game->sprite->enemy[3] = mlx_xpm_file_to_image(game->mlx,
+			"sprite/enemy_right.xpm", width, height);
 }
 
 void	ft_sprite_vertical_move(t_game *game)
@@ -42,7 +66,7 @@ void	ft_sprite_vertical_move(t_game *game)
 	int			width[1];
 	int			height[1];
 
-	if (game->player->move / 2 == 0)
+	if (game->player->move % 2 == 0)
 		game->sprite->pikachu[0] = mlx_xpm_file_to_image(game->mlx,
 				"sprite/pikachu_south_right_feet.xpm", width, height);
 	else
@@ -57,7 +81,7 @@ void	ft_sprite_horizontal_move(t_game *game)
 	int			width[1];
 	int			height[1];
 
-	if (game->player->move / 2 == 0)
+	if (game->player->move % 2 == 0)
 	{
 		game->sprite->pikachu[2] = mlx_xpm_file_to_image(game->mlx,
 				"sprite/pikachu_est_right_feet.xpm", width, height);

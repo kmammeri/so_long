@@ -4,7 +4,7 @@ SRCS = ./sources/so_long.c ./sources/so_long_utils.c ./sources/get_next_line.c .
 
 OBJS = ${SRCS:.c=.o}
 
-SRCS_BONUS = ./bonus/so_long.c ./bonus/so_long_utils.c ./bonus/get_next_line.c ./bonus/get_next_line_utils.c ./bonus/movement.c ./bonus/mapping.c ./bonus/printmap.c ./bonus/check.c ./bonus/animation.c
+SRCS_BONUS = ./bonus/so_long.c ./bonus/so_long_utils.c ./bonus/get_next_line.c ./bonus/get_next_line_utils.c ./bonus/movement.c ./bonus/mapping.c ./bonus/printmap.c ./bonus/check.c ./bonus/animation.c ./bonus/ft_itoa.c ./bonus/enemy.c
 
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
