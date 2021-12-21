@@ -6,7 +6,7 @@
 /*   By: kmammeri <kmammeri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:06:13 by kmammeri          #+#    #+#             */
-/*   Updated: 2021/12/20 20:30:09 by kmammeri         ###   ########.fr       */
+/*   Updated: 2021/12/21 21:13:44 by kmammeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 # define BUFFER_SIZE 1
-# define  WINDOW_LENTH 704
+# define GAME_DIFFICULTY 0
+# define  WINDOW_LENGTH 704
 # define  WINDOW_WIDTH 704
 
 typedef struct s_sprite
@@ -38,6 +39,9 @@ typedef struct s_sprite
 	void	*bottom_middle_screen;
 	void	*left_middle_screen;
 	void	*right_middle_screen;
+	void	*logo_gameboy;
+	void	*wasted;
+	void	*success;
 	void	*enemy[4];
 }				t_sprite;
 
@@ -53,7 +57,7 @@ typedef struct s_player
 
 typedef struct s_enemy
 {
-	int nbenemy;
+	int	nbenemy;
 	int	move;
 	int	*x;
 	int	*y;
@@ -73,6 +77,7 @@ typedef struct s_game
 	int			endgame;
 	int			timer;
 	int			anime;
+	char		*arg;
 	t_sprite	*sprite;
 	t_player	*player;
 	t_enemy		*enemy;
@@ -108,5 +113,8 @@ void	ft_print_enemy(t_game *game, int x, int y);
 void	ft_init_enemy(t_game *game);
 void	ft_check_enemy(t_game *game);
 void	ft_enemy_move(t_game *game);
+void	ft_restart(t_game *game);
+void	ft_enemy_move_cdt1(t_game *game, int i);
+void	ft_enemy_move_cdt2(t_game *game, int i);
 
 #endif

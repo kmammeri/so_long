@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmammeri <kmammeri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 10:55:31 by kmammeri          #+#    #+#             */
-/*   Updated: 2021/12/21 20:44:32 by kmammeri         ###   ########.fr       */
+/*   Updated: 2021/12/21 21:04:53 by kmammeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	ft_checkline(t_game *game, char *txt)
 {
@@ -22,7 +22,7 @@ void	ft_checkline(t_game *game, char *txt)
 	if (game->width != lentxt && txt)
 	{
 		write(1, "Error!\nThe map is not a rectangle\n", 34);
-		exit(0);
+		ft_close(game);
 	}
 }
 

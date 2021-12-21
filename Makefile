@@ -4,7 +4,10 @@ SRCS = ./sources/so_long.c ./sources/so_long_utils.c ./sources/get_next_line.c .
 
 OBJS = ${SRCS:.c=.o}
 
-SRCS_BONUS = ./bonus/so_long.c ./bonus/so_long_utils.c ./bonus/get_next_line.c ./bonus/get_next_line_utils.c ./bonus/movement.c ./bonus/mapping.c ./bonus/printmap.c ./bonus/check.c ./bonus/animation.c ./bonus/ft_itoa.c ./bonus/enemy.c
+SRCS_BONUS = ./bonus/so_long_bonus.c ./bonus/so_long_utils_bonus.c ./bonus/get_next_line_bonus.c \
+./bonus/get_next_line_utils_bonus.c ./bonus/movement_bonus.c ./bonus/mapping_bonus.c \
+./bonus/printmap_bonus.c ./bonus/check_bonus.c ./bonus/animation_bonus.c ./bonus/ft_itoa_bonus.c \
+./bonus/enemy_bonus.c ./bonus/so_many_functions_bonus.c ./bonus/sprites_bonus.c
 
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
@@ -37,4 +40,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re bonus
